@@ -1,0 +1,12 @@
+appId: com.alpineclient
+productName: Alpine Client
+copyright: Copyright © 2022 Crystal Development
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - from: .
+    filter:
+      - package.json
+      - app
+publish: null

@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-100: #8f8f92; 
+  --primary-200: #3e4157;
+  --primary-300: #2d3349;
+  --primary-400: #1e213B;
+
+  --secondary-100: #1c80f2;
+  --secondary-200: #0071F2;
+  --secondary-300: #18569c;
+}
+
+
+@layer components {
+  body {
+    background-color: var(--primary-400);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary-200
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-primary-100
+  }
+}
+
+
+.titlebar {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.titlebar-button {
+  -webkit-app-region: no-drag;
+}
+
+.lineclamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
