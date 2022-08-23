@@ -1,13 +1,15 @@
+import { NextPage } from 'next';
+import { useState } from 'react';
+import { RiCheckFill, RiFolder3Fill, RiRefreshLine } from 'react-icons/ri';
+
 import Option from '@/components/Settings/Option';
 import Layout from '@/components/shared/Layout';
 import SegmentChoice from '@/components/shared/SegmentChoice';
 import Slider from '@/components/shared/Slider';
-import { NextPage } from 'next';
-import { useState } from 'react';
-
-import { RiCheckFill, RiFolder3Fill, RiRefreshLine } from 'react-icons/ri';
+import useOs from '@/hooks/useOs';
 
 const Settings: NextPage = () => {
+	const { totalMem, clientDir } = useOs();
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [distributionBranch, setDistributionBranch] = useState<'Master' | 'Development'>('Master');
 	const [launcherAction, setLauncherAction] = useState<'Keep Open' | 'Hide Launcher'>(
@@ -38,7 +40,7 @@ const Settings: NextPage = () => {
 						<Slider
 							step={1}
 							min={2048}
-							max={16000}
+							max={totalMem}
 							startingMax={8000}
 							startingMin={4000}
 							label='MB'
@@ -99,8 +101,11 @@ const Settings: NextPage = () => {
 									<RiFolder3Fill size={24} />
 								</div>
 							</div>
-							<div className='select-none rounded-lg bg-primary-200 p-2 italic text-primary-100'>
-								C:\Users\Jack\Test
+							<div
+								className='select-none overflow-clip rounded-lg bg-primary-200 p-2 italic text-primary-100'
+								data-tip={clientDir}
+							>
+								{clientDir}
 							</div>
 						</div>
 					</Option.Content>

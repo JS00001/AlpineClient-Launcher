@@ -1,3 +1,4 @@
+import ReactTooltip from 'react-tooltip';
 import Sidebar, { SidebarItems } from './Sidebar';
 import Taskbar from './Taskbar';
 
@@ -9,6 +10,7 @@ export interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ activeItem, children }) => {
 	return (
 		<>
+			<ReactTooltip />
 			<Taskbar />
 			<Sidebar activeItem={activeItem} />
 
